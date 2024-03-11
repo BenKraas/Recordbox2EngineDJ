@@ -1,6 +1,8 @@
 # Recordbox2EngineDJ
 This program serves as a personal starting point of fixing the Beatshifting issue with recorbox imports to EngineDJ.
+
 Note that there are other, likely much more successful approaches found elsewhere.
+
 This tool does silence analysis on .mp3 files specified by the .xml to determine a potential initial beatgrid point. Note that the .mp3s remain completely unchanged!
 
 ## Implemented features:
