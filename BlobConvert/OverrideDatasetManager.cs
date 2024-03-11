@@ -9,7 +9,7 @@ using UtilLibs;
 
 namespace BlobConvert
 {
-    internal class OverrideDatasetHandle
+    internal class OverrideDatasetManager
     {
         [JsonIgnore]
         static string rffPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "OverrideDataset.json");
@@ -30,9 +30,9 @@ namespace BlobConvert
 
 
         [JsonIgnore]
-        private static OverrideDatasetHandle _instance;
+        private static OverrideDatasetManager _instance;
         [JsonIgnore]
-        public static OverrideDatasetHandle Instance
+        public static OverrideDatasetManager Instance
         {
             get
             {
@@ -40,13 +40,13 @@ namespace BlobConvert
                 {
                     // get current executable path and read from subfolder cfg
 
-                    if (IO_Utils.ReadFromFile<OverrideDatasetHandle>(rffPath, out var config))
+                    if (IO_Utils.ReadFromFile<OverrideDatasetManager>(rffPath, out var config))
                     {
                         _instance = config;
                     }
                     else
                     {
-                        _instance = new OverrideDatasetHandle();
+                        _instance = new OverrideDatasetManager();
                     }
                 }
                 return _instance;

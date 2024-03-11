@@ -79,7 +79,7 @@ internal class Program
                 }
 
                 // Check if the track is in SkipData
-                if (OverrideDatasetHandle.Instance.TryGetDataEntry(TrackUUID, out var entry))
+                if (OverrideDatasetManager.Instance.TryGetDataEntry(TrackUUID, out var entry))
                 {
                     if (entry.Skip)
                     {
@@ -93,7 +93,7 @@ internal class Program
                 else
                 {
                     // Add the track to the skip data
-                    OverrideDatasetHandle.Instance.AddDataEntry(TrackUUID, Artist + " - " + Title);
+                    OverrideDatasetManager.Instance.AddDataEntry(TrackUUID, Artist + " - " + Title);
                 }
 
                 // If the name contains the string "Acap" or "acap" then skip the track
@@ -105,7 +105,7 @@ internal class Program
                     Console.ResetColor();
 
                     // Add the track to the skip data
-                    OverrideDatasetHandle.Instance.AddSkippable(TrackUUID, Artist + " - " + Title);
+                    OverrideDatasetManager.Instance.AddSkippable(TrackUUID, Artist + " - " + Title);
                     continue;
                 }
 
@@ -139,7 +139,7 @@ internal class Program
                         Console.ResetColor();
 
                         // Add the track to the skip data
-                        OverrideDatasetHandle.Instance.AddSkippable(TrackUUID, Artist + " - " + Title);
+                        OverrideDatasetManager.Instance.AddSkippable(TrackUUID, Artist + " - " + Title);
                         continue;
                     }
                     else if (overrideOffset_MS.HasValue)
@@ -214,7 +214,7 @@ internal class Program
                 }
             }
             // Save the changes to the OverrideData json file
-            OverrideDatasetHandle.Instance.SaveToFile();
+            OverrideDatasetManager.Instance.SaveToFile();
 
             // Set a new file path
             string newFilePath = filePath.Replace(".xml", "_new.xml");
