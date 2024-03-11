@@ -3,7 +3,9 @@ This program serves as a personal starting point of fixing the Beatshifting issu
 
 Note that there are other, likely much more successful approaches found elsewhere.
 
-This tool does silence analysis on .mp3 files specified by the .xml to determine a potential initial beatgrid point. Note that the .mp3s remain completely unchanged!
+This tool does silence analysis on .mp3 files specified by the .xml to determine a potential initial beatgrid point. 
+
+Your .mp3s and original .xml remain completely unchanged! They are only read for analysis
 
 ## Implemented features:
 Accepts the Recordbox .xml export file and
