@@ -79,7 +79,7 @@ internal class Program
                 }
 
                 // Check if the track is in SkipData
-                if (OverrideData.Instance.TryGetDataEntry(TrackUUID, out var entry))
+                if (OverrideDatasetHandle.Instance.TryGetDataEntry(TrackUUID, out var entry))
                 {
                     if (entry.Skip)
                     {
@@ -93,7 +93,7 @@ internal class Program
                 else
                 {
                     // Add the track to the skip data
-                    OverrideData.Instance.AddDataEntry(TrackUUID, Artist + " - " + Title);
+                    OverrideDatasetHandle.Instance.AddDataEntry(TrackUUID, Artist + " - " + Title);
                 }
 
                 // If the name contains the string "Acap" or "acap" then skip the track
@@ -105,7 +105,7 @@ internal class Program
                     Console.ResetColor();
 
                     // Add the track to the skip data
-                    OverrideData.Instance.AddSkippable(TrackUUID, Artist + " - " + Title);
+                    OverrideDatasetHandle.Instance.AddSkippable(TrackUUID, Artist + " - " + Title);
                     continue;
                 }
 
@@ -139,7 +139,7 @@ internal class Program
                         Console.ResetColor();
 
                         // Add the track to the skip data
-                        OverrideData.Instance.AddSkippable(TrackUUID, Artist + " - " + Title);
+                        OverrideDatasetHandle.Instance.AddSkippable(TrackUUID, Artist + " - " + Title);
                         continue;
                     }
                     else if (overrideOffset_MS.HasValue)
@@ -214,7 +214,7 @@ internal class Program
                 }
             }
             // Save the changes to the OverrideData json file
-            OverrideData.Instance.SaveToFile();
+            OverrideDatasetHandle.Instance.SaveToFile();
 
             // Set a new file path
             string newFilePath = filePath.Replace(".xml", "_new.xml");
