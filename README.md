@@ -1,4 +1,4 @@
-# Recordbox2EngineDJ
+# Recordbox2EngineDJ (Alpha)
 This program serves as a personal starting point of fixing the Beatshifting issue with recorbox imports to EngineDJ.
 
 Note that there are other, likely much more successful approaches found elsewhere.
